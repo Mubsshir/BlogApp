@@ -1,8 +1,7 @@
 package com.example.controller;
 
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -13,12 +12,13 @@ import javax.servlet.http.*;
 public class Homepage extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse res)
+    protected void doGet(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         
-        PrintWriter out = res.getWriter();
+
         res.setContentType("text/html");        
-        RequestDispatcher rd=req.getRequestDispatcher("Homepage.jsp");
+        RequestDispatcher rd=req.getRequestDispatcher("/HomePage.jsp");
+
         rd.forward(req, res);
         
     }
