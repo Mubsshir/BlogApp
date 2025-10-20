@@ -1,11 +1,26 @@
-body {
-  box-sizing: border-box;
+/* ---------- Base ---------- */
+* {
   margin: 0;
-  background-color: rgb(231, 217, 217);
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4a00e0, #8e2de2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.microblog-form{
-    max-width:720px;margin:12px 0;padding:16px;background:linear-gradient(180deg,#ffffffcc, #f7fbff);border-radius:12px;border:1px solid #e6eef8;box-shadow:0 6px 18px rgba(20,40,80,0.06);
+.microblog-form {
+  max-width: 720px;
+  margin: 12px 0;
+  padding: 16px;
+  background: linear-gradient(180deg, #ffffffcc, #f7fbff);
+  border-radius: 12px;
+  border: 1px solid #e6eef8;
+  box-shadow: 0 6px 18px rgba(20, 40, 80, 0.06);
 }
 
 .microblog-form label {
@@ -67,12 +82,4 @@ body {
 .tag-input {
   max-width: 260px;
 }
-@media (max-width: 560px) {
-  .microblog-form .row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .tag-input {
-    max-width: 100%;
-  }
-}
+

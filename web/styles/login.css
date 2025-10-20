@@ -1,0 +1,119 @@
+
+/* ---------- Base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4a00e0, #8e2de2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------- Container ---------- */
+.container {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  width: 380px;
+  padding: 2rem;
+  text-align: center;
+  color: #fff;
+  transition: all 0.4s ease;
+}
+
+.container h2 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.input-group {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 40px 12px 15px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+
+.input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.btn {
+  background: #6a11cb;
+  border: none;
+  color: #fff;
+  padding: 12px;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #2575fc;
+}
+
+.error-message {
+  display: none;
+  color: #ff6b6b;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.switch {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.switch a {
+  color: #ffdd57;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ---------- Hidden form toggle ---------- */
+#registerForm {
+  display: none;
+}
+
+/* ---------- Fade animations ---------- */
+.fade-in {
+  animation: fadeIn 0.4s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 560px) {
+  .microblog-form .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .tag-input {
+    max-width: 100%;
+  }
+}

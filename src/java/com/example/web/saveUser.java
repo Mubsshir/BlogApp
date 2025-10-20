@@ -4,7 +4,7 @@ package com.example.web;
 import com.example.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.ServletException;
+import javax.servlet.*;
 import javax.servlet.http.*;
 
 /**
@@ -30,7 +30,8 @@ public class saveUser extends HttpServlet {
         String hashedPass = User.isUsernameAvailable(username);
 
         if (hashedPass.equals("")) {
-            out.println("<h3>Username [ " + username + " ] is available</h3>" + hashedPass);
+            RequestDispatcher rd =request.getRequestDispatcher("/");
+            
         } else {
             out.println("<h3>Username [ " + username + " ] is not available</h3>");
         }

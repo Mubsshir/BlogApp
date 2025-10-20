@@ -8,6 +8,10 @@
         <servlet-name>Homepage</servlet-name>
         <servlet-class>com.example.controller.Homepage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginPage</servlet-name>
+        <servlet-class>com.example.web.LoginPage</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>saveUser</servlet-name>
         <url-pattern>/saveUser.do</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>Homepage</servlet-name>
         <url-pattern>/Homepage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginPage</servlet-name>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

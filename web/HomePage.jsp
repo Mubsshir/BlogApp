@@ -21,6 +21,7 @@
               <div>
                 <form action="post">
                     <div class="microblog-form" >
+                      
                         <label for="microContent" style="margin-top:10px">What's happening?</label>
                         <textarea id="microContent" name="content" rows="4" maxlength="280" placeholder="Write a short microblog (max 280 characters)" required>
                         </textarea>
@@ -41,36 +42,11 @@
                             </div>
                         </div>
 
-                        <script>
-                            (function(){
-                                const ta = document.getElementById('microContent');
-                                const count = document.getElementById('charLeft');
-                                const btn = document.getElementById('postBtn');
-                                const MAX = Number(ta.getAttribute('maxlength')||280);
-
-                                function refresh(){
-                                    const len = ta.value.trim().length;
-                                    const left = MAX - len;
-                                    count.textContent = left;
-                                    if(left < 0) { count.style.color = '#b22222'; btn.disabled = true; }
-                                    else if(left <= 20) { count.style.color = '#d96400'; btn.disabled = len===0; }
-                                    else { count.style.color = '#386b8f'; btn.disabled = len===0; }
-                                }
-
-                                ta.addEventListener('input', refresh);
-                                document.addEventListener('DOMContentLoaded', refresh);
-                                // quick keyboard shortcut: Ctrl+Enter to submit
-                                ta.addEventListener('keydown', function(e){
-                                    if((e.ctrlKey||e.metaKey) && e.key === 'Enter' && !btn.disabled){
-                                        btn.click();
-                                    }
-                                });
-                            })();
-                        </script>
                     </div>
                 </form>
               </div>
        </main>
     </body>
+    <script src="scripts/main.js"></script>
 </html>
     
