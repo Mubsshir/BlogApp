@@ -1,158 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blogger App</title>
-  <style>
-    /* ---------- Base ---------- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-    body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #4a00e0, #8e2de2);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogger App</title>
+    <style>
+      /* ---------- Base ---------- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #4a00e0, #8e2de2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-    /* ---------- Container ---------- */
-    .container {
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      backdrop-filter: blur(15px);
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
-      width: 380px;
-      padding: 2rem;
-      text-align: center;
-      color: #fff;
-      transition: all 0.4s ease;
-    }
+      /* ---------- Container ---------- */
+      .container {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+        width: 380px;
+        padding: 2rem;
+        text-align: center;
+        color: #fff;
+        transition: all 0.4s ease;
+      }
 
-    .container h2 {
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
+      .container h2 {
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
 
-    .input-group {
-      position: relative;
-      margin: 1rem 0;
-    }
+      .input-group {
+        position: relative;
+        margin: 1rem 0;
+      }
 
-    .input-group input {
-      width: 100%;
-      padding: 12px 40px 12px 15px;
-      border: none;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.2);
-      color: #fff;
-      font-size: 1rem;
-      outline: none;
-    }
+      .input-group input {
+        width: 100%;
+        padding: 12px 40px 12px 15px;
+        border: none;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        font-size: 1rem;
+        outline: none;
+      }
 
-    .input-group input::placeholder {
-      color: rgba(255, 255, 255, 0.8);
-    }
+      .input-group input::placeholder {
+        color: rgba(255, 255, 255, 0.8);
+      }
 
-    .btn {
-      background: #6a11cb;
-      border: none;
-      color: #fff;
-      padding: 12px;
-      width: 100%;
-      border-radius: 10px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+      .btn {
+        background: #6a11cb;
+        border: none;
+        color: #fff;
+        padding: 12px;
+        width: 100%;
+        border-radius: 10px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+      }
 
-    .btn:hover {
-      background: #2575fc;
-    }
+      .btn:hover {
+        background: #2575fc;
+      }
 
-    .switch {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-    }
+      .error-message {
+        display: none;
+        color: #ff6b6b;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+      }
 
-    .switch a {
-      color: #ffdd57;
-      cursor: pointer;
-      text-decoration: none;
-      font-weight: 600;
-    }
+      .switch {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+      }
 
-    /* ---------- Hidden form toggle ---------- */
-    #registerForm {
-      display: none;
-    }
+      .switch a {
+        color: #ffdd57;
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: 600;
+      }
 
-    /* ---------- Fade animations ---------- */
-    .fade-in {
-      animation: fadeIn 0.4s forwards;
-    }
+      /* ---------- Hidden form toggle ---------- */
+      #registerForm {
+        display: none;
+      }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <!-- Login Form -->
-    <form id="loginForm" class="fade-in">
-      <h2>Login</h2>
-      <div class="input-group">
-        <input type="text" placeholder="Username" required />
-      </div>
-      <div class="input-group">
-        <input type="password" placeholder="Password" required />
-      </div>
-      <button type="submit" class="btn">Login</button>
-      <div class="switch">
-        Don’t have an account? <a id="showRegister">Register</a>
-      </div>
-    </form>
+      /* ---------- Fade animations ---------- */
+      .fade-in {
+        animation: fadeIn 0.4s forwards;
+      }
 
-    <!-- Register Form -->
-    <form id="registerForm" class="fade-in">
-      <h2>Register</h2>
-      <div class="input-group">
-        <input type="text" placeholder="Username" required />
-      </div>
-      <div class="input-group">
-        <input type="email" placeholder="Email" required />
-      </div>
-      <div class="input-group">
-        <input type="password" placeholder="Password" required />
-      </div>
-      <button type="submit" class="btn">Sign Up</button>
-      <div class="switch">
-        Already have an account? <a id="showLogin">Login</a>
-      </div>
-    </form>
-  </div>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Login Form -->
+      <form
+        id="loginForm"
+        class="fade-in"
+        method="post"
+        action="saveUser.do"
+      >
+        <h2>Login</h2>
+        <div class="input-group">
+            <input type="text" name="username" id="username" placeholder="Username" required />
+        </div>
+        <div class="input-group">
+          <input type="password"  name="password" id="password" placeholder="Password" required />
+        </div>
+        <button type="submit" class="btn">Login</button>
+        <div class="switch">
+          Don’t have an account? <a id="showRegister">Register</a>
+        </div>
+      </form>
 
-  <script>
-    const loginForm = document.getElementById("loginForm");
-    const registerForm = document.getElementById("registerForm");
-    const showRegister = document.getElementById("showRegister");
-    const showLogin = document.getElementById("showLogin");
+      <!-- Register Form -->
+      <form id="registerForm" class="fade-in" method="post" action="saveUser.do">
+        <h2>Register for Blog Application</h2>
+        <div class="input-group">
+          <input type="text"  name="username" id="username" placeholder="Username..." required />
+        </div>  
+        <div class="input-group">
+          <input type="text" name ="fname" id="fname" placeholder="First name...." required />
+        </div>
+        <div class="input-group">
+          <input type="text"name ="lname" id="lname" placeholder="Last name...." required />
+        </div>
+        <div class="input-group">
+          <input type="email" name ="email" id="email" placeholder="Email...." required />
+        </div>
+        <div class="input-group">
+          <input type="tel" name ="phone" id="phone" placeholder="Phone.. " required />
+        </div>
+        <div class="input-group">
+          <input type="password" name="password" id="password" placeholder="Enter Password" required />
+        </div>
+        <div class="input-group">
+          <input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" required />
+        </div>
+        <button type="submit" class="btn">Sign Up</button>
+        <div class="switch">
+          Already have an account? <a id="showLogin">Login</a>
+        </div>
+        <div class="error-message">
+          
+        </div>
+      </form>
+    </div>
 
-    showRegister.addEventListener("click", () => {
-      loginForm.style.display = "none";
-      registerForm.style.display = "block";
-    });
+    <script>
+      const loginForm = document.getElementById("loginForm");
+      const registerForm = document.getElementById("registerForm");
+      const showRegister = document.getElementById("showRegister");
+      const showLogin = document.getElementById("showLogin");
+      const errorMessage = document.querySelector(".error-message");
 
-    showLogin.addEventListener("click", () => {
-      registerForm.style.display = "none";
-      loginForm.style.display = "block";
-    });
-  </script>
-</body>
+      const cpassword = document.getElementById("cpassword");
+      const password = document.getElementById("password");
+      registerForm.addEventListener("submit", (e) => {
+        if (password.value !== cpassword.value) {
+          e.preventDefault();
+          errorMessage.style.display = "block";
+          errorMessage.textContent = "Passwords do not match!";
+        }
+      });
+
+      showRegister.addEventListener("click", () => {
+        loginForm.style.display = "none";
+        registerForm.style.display = "block";
+      });
+
+      showLogin.addEventListener("click", () => {
+        registerForm.style.display = "none";
+        loginForm.style.display = "block";
+      });
+    </script>
+  </body>
 </html>
